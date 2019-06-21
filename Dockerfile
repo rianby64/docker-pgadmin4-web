@@ -7,6 +7,7 @@ RUN yum install -y pgadmin4-web.noarch policycoreutils-python.x86_64 openssh-cli
 
 RUN yum update -y
 
+# ./usr/pgadmin4/bin/pgadmin4-web-setup.sh
 RUN mkdir -p /var/lib/pgadmin/storage
 RUN mkdir -p /var/lib/pgadmin/sessions
 RUN mkdir -p /var/log/pgadmin
@@ -24,4 +25,7 @@ RUN chmod 644 /var/log/pgadmin/pgadmin4.log
 RUN chown -R apache:apache /var/lib/pgadmin
 RUN chown -R apache:apache /var/log/pgadmin
 
-# ./usr/pgadmin4/bin/pgadmin4-web-setup.sh
+EXPOSE 80
+EXPOSE 5432
+
+CMD ["httpd", "-DNO_DETACH"]
