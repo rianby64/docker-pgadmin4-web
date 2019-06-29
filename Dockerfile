@@ -1,6 +1,8 @@
 
 FROM centos:latest
 
+RUN yum update -y
+
 RUN yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm epel-release.noarch
 
 RUN yum install -y pgadmin4-web.noarch policycoreutils-python.x86_64 openssh-clients.x86_64
