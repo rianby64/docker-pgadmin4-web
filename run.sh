@@ -1,8 +1,6 @@
 
-docker build -t pgadmin4-ct .
-
-docker run -d --rm \
+podman build -t pgadmin4-ct . && \
+podman run -it \
     --name pgadmin4-ct \
-    --net arca-net \
-    -p 8080:80 \
+    -p 9090:80 \
     pgadmin4-ct
